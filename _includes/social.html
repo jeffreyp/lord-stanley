@@ -1,3 +1,5 @@
 <ul class="social-media-list">
-<!-- TODO -->
+  {%- for entry in site.lord-stanley.social_links -%}
+    {%- include social-item.html item = entry -%}
+  {%- endfor -%}
 </ul>
