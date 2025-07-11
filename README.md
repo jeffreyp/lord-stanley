@@ -70,6 +70,9 @@ plugins:
   - jekyll-seo-tag
   - jekyll-sitemap
 
+# Google Analytics (optional)
+google_analytics: GA_MEASUREMENT_ID  # Replace with your Google Analytics 4 measurement ID
+
 # Theme-specific settings
 lord-stanley:
   skin: classic  # Options: classic, dark, auto, solarized-light, solarized-dark, solarized
@@ -121,6 +124,19 @@ Add social media links to your footer by configuring the `social_links` array in
 ### Navigation
 
 Configure which pages appear in your header navigation using the `header_pages` setting. Pages will appear in the order listed.
+
+### Google Analytics
+
+To enable Google Analytics tracking, add your measurement ID to `_config.yml`:
+
+```yaml
+google_analytics: G-XXXXXXXXXX  # Replace with your GA4 measurement ID
+```
+
+The theme includes:
+- Privacy-respecting implementation that honors Do Not Track settings
+- Automatic loading only in production environment
+- Modern Google Analytics 4 support
 
 ### Posts and Pages
 
