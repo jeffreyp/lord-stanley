@@ -36,6 +36,9 @@ header_pages:
 # Set to `true` to show excerpts on the homepage.
 show_excerpts: true
 
+# Google Analytics
+google_analytics: GA_MEASUREMENT_ID # Replace with your Google Analytics 4 measurement ID (e.g., G-XXXXXXXXXX)
+
 # Theme specific settings
 lord-stanley:
   # Skin selection.
