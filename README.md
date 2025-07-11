@@ -1,6 +1,10 @@
 # Lord Stanley
 
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/63/Lord_Stanley_of_Preston.jpg/250px-Lord_Stanley_of_Preston.jpg" alt="Lord Frederick Stanley, 16th Earl of Derby" width="200" align="right" style="margin-left: 20px; margin-bottom: 20px;">
+
 A very much work-in-progress-but-one-day clean, responsive Jekyll theme built with modern web standards and SEO optimization in mind. Originally inspired by the Minima theme but with enhanced features and improved structure.
+
+Named after **[Frederick Stanley, 16th Earl of Derby](https://en.wikipedia.org/wiki/Frederick_Stanley,_16th_Earl_of_Derby)** (1841-1908), who served as Governor General of Canada and is best known for donating the Stanley Cup, the championship trophy of the National Hockey League.
 
 ## Features
 
