@@ -8,15 +8,194 @@ $base-font-weight: 400 !default;
 $small-font-size: $base-font-size * 0.875 !default;
 $base-line-height: 1.5 !default;
 
-$border-color-01: lighten(#3f5285, 40%) !default;
-$border-color-02: lighten(#3f5285, 35%) !default;
-$border-color-03: darken(#3f5285, 25%) !default;
+// Classic (default light) color scheme
+:root {
+  --background-color: #fdfdfd;
+  --text-color: #111111;
+  --brand-color: #3f5285;
+  --border-color-01: #{lighten(#3f5285, 40%)};
+  --border-color-02: #{lighten(#3f5285, 35%)};
+  --border-color-03: #{darken(#3f5285, 25%)};
+  --site-title-color: #{darken(#3f5285, 25%)};
+  --link-color: #2a7ae2;
+  --link-visited-color: #111111;
+  --blockquote-color: #828282;
+  --blockquote-border-color: #{lighten(#828282, 40%)};
+  --code-background-color: #eeeeff;
+  --code-border-color: #{lighten(#828282, 40%)};
+  --grey-color: #828282;
+  --orange-color: #f66a0a;
+  --svg-icon-color: #333333;
+  --table-text-color: #{lighten(#111111, 18%)};
+  --table-border-color: #{lighten(#828282, 40%)};
+  --table-header-background: #{lighten(#828282, 46%)};
+  --table-header-border: #{lighten(#828282, 18%)};
+  --table-row-background: #{lighten(#828282, 48%)};
+}
 
-$site-title-color: darken(#3f5285, 25%) !default;
+// Dark color scheme
+:root[data-theme="dark"] {
+  --background-color: #1a1a1a;
+  --text-color: #e0e0e0;
+  --brand-color: #7a9bd4;
+  --border-color-01: #404040;
+  --border-color-02: #4a4a4a;
+  --border-color-03: #7a9bd4;
+  --site-title-color: #7a9bd4;
+  --link-color: #6db3f2;
+  --link-visited-color: #b0b0b0;
+  --blockquote-color: #a0a0a0;
+  --blockquote-border-color: #505050;
+  --code-background-color: #2a2a2a;
+  --code-border-color: #505050;
+  --grey-color: #a0a0a0;
+  --orange-color: #ff8c42;
+  --svg-icon-color: #e0e0e0;
+  --table-text-color: #d0d0d0;
+  --table-border-color: #505050;
+  --table-header-background: #2a2a2a;
+  --table-header-border: #404040;
+  --table-row-background: #232323;
+}
 
-$background-color: #fdfdfd !default;
-$text-color: #111111 !default;
-$brand-color: #3f5285 !default;
+// Solarized Light color scheme
+:root[data-theme="solarized-light"] {
+  --background-color: #fdf6e3;
+  --text-color: #657b83;
+  --brand-color: #268bd2;
+  --border-color-01: #eee8d5;
+  --border-color-02: #e4dcc6;
+  --border-color-03: #268bd2;
+  --site-title-color: #268bd2;
+  --link-color: #268bd2;
+  --link-visited-color: #6c71c4;
+  --blockquote-color: #93a1a1;
+  --blockquote-border-color: #eee8d5;
+  --code-background-color: #eee8d5;
+  --code-border-color: #d3cbab;
+  --grey-color: #93a1a1;
+  --orange-color: #cb4b16;
+  --svg-icon-color: #657b83;
+  --table-text-color: #586e75;
+  --table-border-color: #eee8d5;
+  --table-header-background: #e4dcc6;
+  --table-header-border: #d3cbab;
+  --table-row-background: #f7f1e0;
+}
+
+// Solarized Dark color scheme
+:root[data-theme="solarized-dark"] {
+  --background-color: #002b36;
+  --text-color: #839496;
+  --brand-color: #268bd2;
+  --border-color-01: #073642;
+  --border-color-02: #0f4552;
+  --border-color-03: #268bd2;
+  --site-title-color: #268bd2;
+  --link-color: #268bd2;
+  --link-visited-color: #6c71c4;
+  --blockquote-color: #657b83;
+  --blockquote-border-color: #073642;
+  --code-background-color: #073642;
+  --code-border-color: #0f4552;
+  --grey-color: #657b83;
+  --orange-color: #cb4b16;
+  --svg-icon-color: #839496;
+  --table-text-color: #839496;
+  --table-border-color: #073642;
+  --table-header-background: #0f4552;
+  --table-header-border: #073642;
+  --table-row-background: #003847;
+}
+
+// Auto theme support using CSS media queries
+@media (prefers-color-scheme: dark) {
+  :root[data-theme="auto"] {
+    --background-color: #1a1a1a;
+    --text-color: #e0e0e0;
+    --brand-color: #7a9bd4;
+    --border-color-01: #404040;
+    --border-color-02: #4a4a4a;
+    --border-color-03: #7a9bd4;
+    --site-title-color: #7a9bd4;
+    --link-color: #6db3f2;
+    --link-visited-color: #b0b0b0;
+    --blockquote-color: #a0a0a0;
+    --blockquote-border-color: #505050;
+    --code-background-color: #2a2a2a;
+    --code-border-color: #505050;
+    --grey-color: #a0a0a0;
+    --orange-color: #ff8c42;
+    --svg-icon-color: #e0e0e0;
+    --table-text-color: #d0d0d0;
+    --table-border-color: #505050;
+    --table-header-background: #2a2a2a;
+    --table-header-border: #404040;
+    --table-row-background: #232323;
+  }
+}
+
+// Solarized auto theme support
+@media (prefers-color-scheme: dark) {
+  :root[data-theme="solarized"] {
+    --background-color: #002b36;
+    --text-color: #839496;
+    --brand-color: #268bd2;
+    --border-color-01: #073642;
+    --border-color-02: #0f4552;
+    --border-color-03: #268bd2;
+    --site-title-color: #268bd2;
+    --link-color: #268bd2;
+    --link-visited-color: #6c71c4;
+    --blockquote-color: #657b83;
+    --blockquote-border-color: #073642;
+    --code-background-color: #073642;
+    --code-border-color: #0f4552;
+    --grey-color: #657b83;
+    --orange-color: #cb4b16;
+    --svg-icon-color: #839496;
+    --table-text-color: #839496;
+    --table-border-color: #073642;
+    --table-header-background: #0f4552;
+    --table-header-border: #073642;
+    --table-row-background: #003847;
+  }
+}
+
+@media (prefers-color-scheme: light) {
+  :root[data-theme="solarized"] {
+    --background-color: #fdf6e3;
+    --text-color: #657b83;
+    --brand-color: #268bd2;
+    --border-color-01: #eee8d5;
+    --border-color-02: #e4dcc6;
+    --border-color-03: #268bd2;
+    --site-title-color: #268bd2;
+    --link-color: #268bd2;
+    --link-visited-color: #6c71c4;
+    --blockquote-color: #93a1a1;
+    --blockquote-border-color: #eee8d5;
+    --code-background-color: #eee8d5;
+    --code-border-color: #d3cbab;
+    --grey-color: #93a1a1;
+    --orange-color: #cb4b16;
+    --svg-icon-color: #657b83;
+    --table-text-color: #586e75;
+    --table-border-color: #eee8d5;
+    --table-header-background: #e4dcc6;
+    --table-header-border: #d3cbab;
+    --table-row-background: #f7f1e0;
+  }
+}
+
+// SCSS variables using CSS custom properties
+$border-color-01: var(--border-color-01) !default;
+$border-color-02: var(--border-color-02) !default;
+$border-color-03: var(--border-color-03) !default;
+$site-title-color: var(--site-title-color) !default;
+$background-color: var(--background-color) !default;
+$text-color: var(--text-color) !default;
+$brand-color: var(--brand-color) !default;
 
 $spacing-unit: 30px !default;
 
