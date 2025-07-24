@@ -22,25 +22,22 @@ Named after **[Frederick Stanley, 16th Earl of Derby](https://en.wikipedia.org/w
 Add this line to your Jekyll site's `Gemfile`:
 
 ```ruby
-gem "lord-stanley"
+gem "jekyll-remote-theme"
 ```
 
-And add this line to your Jekyll site's `_config.yml`:
+And add these lines to your Jekyll site's `_config.yml`:
 
 ```yaml
-theme: lord-stanley
+plugins:
+  - jekyll-remote-theme
+
+remote_theme: jeffreyp/lord-stanley
 ```
 
 Then execute:
 
 ```bash
 bundle install
-```
-
-Or install it yourself as:
-
-```bash
-gem install lord-stanley
 ```
 
 ## Usage
