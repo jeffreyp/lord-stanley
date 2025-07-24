@@ -23,6 +23,7 @@ theme: lord-stanley
 
 plugins:
   - jekyll-feed
+  - jekyll-paginate
   - jekyll-seo-tag
   - jekyll-sitemap
 
@@ -35,6 +36,10 @@ header_pages:
 
 # Set to `true` to show excerpts on the homepage.
 show_excerpts: true
+
+# Pagination settings
+paginate: 5
+paginate_path: "/page:num/"
 
 # Google Analytics
 google_analytics: GA_MEASUREMENT_ID # Replace with your Google Analytics 4 measurement ID (e.g., G-XXXXXXXXXX)
