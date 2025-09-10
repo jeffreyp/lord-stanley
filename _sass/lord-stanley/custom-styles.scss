@@ -1,8 +1,9 @@
 // Placeholder to allow defining custom styles that override everything else.
 // (Use '_sass/lord-stanley/custom-variables.scss' to override variable defaults.
 
-// Default photo positioning - upper right corner for posts and previews
+// Default photo positioning - upper right corner for posts, pages, and previews
 .post-content img:first-of-type,
+.page-content img:first-of-type,
 .post-list img:first-of-type {
     float: right;
     margin: 0 0 1rem 1rem;
@@ -13,6 +14,7 @@
 
 // Ensure post content has proper clearfix for floated images
 .post-content::after,
+.page-content::after,
 .post-list li::after {
     content: "";
     display: table;
@@ -40,6 +42,7 @@
 // Responsive adjustments
 @media screen and (max-width: 600px) {
     .post-content img:first-of-type,
+    .page-content img:first-of-type,
     .post-list img:first-of-type {
         float: none;
         display: block;
