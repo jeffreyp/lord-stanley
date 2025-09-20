@@ -10,6 +10,13 @@
     max-width: 300px;
     height: auto;
     clear: right;
+    shape-outside: margin-box;
+}
+
+// Ensure paragraphs after the first few don't wrap around the image
+.post-content p:nth-of-type(n+4),
+.page-content p:nth-of-type(n+4) {
+    clear: right;
 }
 
 // Ensure post content has proper clearfix for floated images
