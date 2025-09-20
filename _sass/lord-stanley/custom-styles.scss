@@ -6,7 +6,7 @@
 .page-content img:first-of-type,
 .post-list img:first-of-type {
     float: right;
-    margin: -15px 0 1rem 1rem;  // Negative top margin to pull image up and align with first text
+    margin: -45px 0 1rem 1rem;  // Pull image up to align with first paragraph
     max-width: 300px;
     height: auto;
     clear: right;
@@ -14,8 +14,8 @@
 }
 
 // When image is in its own paragraph, adjust the paragraph margins for better alignment
-.post-content p:has(img:first-of-type):first-of-type,
-.page-content p:has(img:first-of-type):first-of-type {
+.post-content p:has(img:first-of-type),
+.page-content p:has(img:first-of-type) {
     margin-bottom: 0;
     margin-top: 0;
 }
