@@ -6,16 +6,24 @@
 .page-content img:first-of-type,
 .post-list img:first-of-type {
     float: right;
-    margin: 0 0 1rem 1rem;
+    margin: -15px 0 1rem 1rem;  // Negative top margin to pull image up and align with first text
     max-width: 300px;
     height: auto;
     clear: right;
     shape-outside: margin-box;
 }
 
-// Ensure paragraphs after the first few don't wrap around the image
-.post-content p:nth-of-type(n+4),
-.page-content p:nth-of-type(n+4) {
+// When image is in its own paragraph, adjust the paragraph margins for better alignment
+.post-content p:has(img:first-of-type):first-of-type,
+.page-content p:has(img:first-of-type):first-of-type {
+    margin-bottom: 0;
+    margin-top: 0;
+}
+
+// Better control for text wrapping around images
+// Allow first 4 paragraphs to wrap around the image, then clear
+.post-content p:nth-of-type(n+5),
+.page-content p:nth-of-type(n+5) {
     clear: right;
 }
 
