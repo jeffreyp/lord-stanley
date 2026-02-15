@@ -112,6 +112,7 @@ Add social media links to your footer by configuring the `social_links` array in
 - linkedin
 - pinboard
 - pinterest
+- rss
 - smugmug
 - stackoverflow
 - twitter
