@@ -1,1 +1,2 @@
-<circle cx="8" cy="5" r="4"/><rect x="7.5" y="8" width="1" height="7" rx="0.5"/>
+<circle cx="8" cy="5.5" r="3.5"/>
+<path d="M7.25 8.5v4.75a.75.75 0 0 0 1.5 0V8.5z"/>
