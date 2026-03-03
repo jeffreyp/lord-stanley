@@ -309,4 +309,16 @@
     }
 }
 
+.not-found {
+    text-align: center;
+    padding: $spacing-unit * 2 0;
+
+    h1 {
+	@include relative-font-size(5);
+	letter-spacing: -2px;
+	line-height: 1;
+	margin-bottom: $spacing-unit * .5;
+    }
+}
+
     
