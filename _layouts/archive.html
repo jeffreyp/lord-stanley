@@ -1,0 +1,29 @@
+---
+layout: base
+---
+
+<div class="archive">
+  <h1 class="page-heading">{{ page.title }}</h1>
+
+  {%- if page.posts.size > 0 -%}
+    <ul class="post-list">
+      {%- assign date_format = site.lord-stanley.date_format | default: "%b %d, %Y" -%}
+      {%- for post in page.posts -%}
+        <li>
+          <span class="post-meta">{{ post.date | date: date_format }}</span>
+          <h3>
+            <a class="post-link" href="{{ post.url | relative_url }}">
+              {{ post.title | escape }}
+            </a>
+          </h3>
+          {%- if site.show_excerpts -%}
+            {{ post.excerpt }}
+          {%- endif -%}
+        </li>
+      {%- endfor -%}
+    </ul>
+  {%- else -%}
+    <p>No posts in this time range.</p>
+    <p><a href="{{ '/' | relative_url }}">&larr; Return home</a></p>
+  {%- endif -%}
+</div>
