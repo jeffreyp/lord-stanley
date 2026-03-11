@@ -1,0 +1,13 @@
+{%- assign recent_count = site.lord-stanley.sidebar_recent_posts | default: 10 -%}
+{%- assign date_format = site.lord-stanley.date_format | default: "%b %-d, %Y" -%}
+<div class="sidebar-widget sidebar-recent-posts">
+  <h3 class="sidebar-widget-title">Recent Posts</h3>
+  <ul class="sidebar-recent-posts-list">
+    {%- for post in site.posts limit: recent_count -%}
+    <li>
+      <a href="{{ post.url | relative_url }}">{{ post.title | escape }}</a>
+      <span class="post-meta">{{ post.date | date: date_format }}</span>
+    </li>
+    {%- endfor -%}
+  </ul>
+</div>

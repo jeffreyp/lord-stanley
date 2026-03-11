@@ -8,7 +8,14 @@
 
     <main class="page-content" aria-label="Content">
       <div class="wrapper">
-        {{ content }}
+        <div class="site-layout">
+          <div class="main-content">
+            {{ content }}
+          </div>
+          <aside class="sidebar" role="complementary">
+            {%- include sidebar.html -%}
+          </aside>
+        </div>
       </div>
     </main>
 

@@ -1,0 +1,88 @@
+<div class="sidebar-widget sidebar-calendar">
+  <h3 class="sidebar-widget-title">Calendar</h3>
+  <div id="sidebar-calendar-widget"
+       data-baseurl="{{ site.baseurl }}"
+       data-page-date="{{ page.date | date: '%Y-%m-%d' }}">
+  </div>
+</div>
+<script>
+(function() {
+  var postDates = [{% for post in site.posts %}"{{ post.date | date: '%Y-%m-%d' }}"{% unless forloop.last %},{% endunless %}{% endfor %}];
+
+  var el = document.getElementById('sidebar-calendar-widget');
+  if (!el) return;
+
+  var baseurl = el.getAttribute('data-baseurl') || '';
+  var pageDate = el.getAttribute('data-page-date') || '';
+
+  // Build lookup: { "YYYY-MM": Set of day numbers }
+  var postDateSet = {};
+  postDates.forEach(function(d) {
+    var parts = d.split('-');
+    var key = parts[0] + '-' + parts[1];
+    if (!postDateSet[key]) postDateSet[key] = {};
+    postDateSet[key][parseInt(parts[2], 10)] = true;
+  });
+
+  var currentYear, currentMonth;
+  if (pageDate && pageDate.length === 10) {
+    var pd = pageDate.split('-');
+    currentYear = parseInt(pd[0], 10);
+    currentMonth = parseInt(pd[1], 10) - 1;
+  } else {
+    var now = new Date();
+    currentYear = now.getFullYear();
+    currentMonth = now.getMonth();
+  }
+
+  function pad(n) { return n < 10 ? '0' + n : '' + n; }
+
+  function render(year, month) {
+    var monthNames = ['January','February','March','April','May','June',
+                      'July','August','September','October','November','December'];
+    var dayNames = ['Su','Mo','Tu','We','Th','Fr','Sa'];
+    var key = year + '-' + pad(month + 1);
+    var daysWithPosts = postDateSet[key] || {};
+    var firstDow = new Date(year, month, 1).getDay();
+    var daysInMonth = new Date(year, month + 1, 0).getDate();
+
+    var html = '<div class="cal-nav">'
+      + '<button data-cal-nav="-1" aria-label="Previous month">\u2039</button>'
+      + '<span class="cal-month-title">' + monthNames[month] + ' ' + year + '</span>'
+      + '<button data-cal-nav="1" aria-label="Next month">\u203a</button>'
+      + '</div>'
+      + '<table class="cal-table" role="grid"><thead><tr>';
+    dayNames.forEach(function(d) { html += '<th scope="col">' + d + '</th>'; });
+    html += '</tr></thead><tbody><tr>';
+
+    for (var i = 0; i < firstDow; i++) html += '<td></td>';
+    var col = firstDow;
+    for (var day = 1; day <= daysInMonth; day++) {
+      if (daysWithPosts[day]) {
+        var href = baseurl + '/' + year + '/' + pad(month + 1) + '/' + pad(day) + '/';
+        html += '<td><a href="' + href + '">' + day + '</a></td>';
+      } else {
+        html += '<td>' + day + '</td>';
+      }
+      col++;
+      if (col % 7 === 0 && day < daysInMonth) html += '</tr><tr>';
+    }
+    while (col % 7 !== 0) { html += '<td></td>'; col++; }
+    html += '</tr></tbody></table>';
+
+    el.innerHTML = html;
+  }
+
+  el.addEventListener('click', function(e) {
+    var btn = e.target.closest('[data-cal-nav]');
+    if (!btn) return;
+    var delta = parseInt(btn.getAttribute('data-cal-nav'), 10);
+    currentMonth += delta;
+    if (currentMonth < 0) { currentMonth = 11; currentYear--; }
+    if (currentMonth > 11) { currentMonth = 0; currentYear++; }
+    render(currentYear, currentMonth);
+  });
+
+  render(currentYear, currentMonth);
+})();
+</script>

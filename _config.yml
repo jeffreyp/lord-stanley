@@ -73,9 +73,12 @@ lord-stanley:
   skin: classic
   
   # Date format.
-  # The default value is "%b %d, %Y" (e.g. Nov 14, 2023) 
+  # The default value is "%b %d, %Y" (e.g. Nov 14, 2023)
   # Refer to https://shopify.github.io/liquid/filters/date/ if you want to customize this.
   #date_format: "%b-%d-%Y"
+
+  # Number of posts to show in the sidebar "Recent Posts" widget (default: 10).
+  #sidebar_recent_posts: 10
 
   # Generate social links in footer.
   social_links:

@@ -321,4 +321,114 @@
     }
 }
 
-    
+// Two-column layout: main content + sidebar
+.site-layout {
+    display: flex;
+    gap: $spacing-unit;
+    align-items: flex-start;
+}
+
+.main-content {
+    flex: 1;
+    min-width: 0;
+}
+
+.sidebar {
+    width: $sidebar-width;
+    flex-shrink: 0;
+
+    @media screen and (max-width: 900px) {
+	display: none;
+    }
+}
+
+// Sidebar widgets
+.sidebar-widget {
+    margin-bottom: $spacing-unit;
+    padding: $spacing-unit * .5;
+    border: 1px solid $border-color-01;
+    border-radius: 4px;
+}
+
+.sidebar-widget-title {
+    @include relative-font-size(0.9375);
+    font-weight: 700;
+    margin-bottom: $spacing-unit * .33;
+    padding-bottom: $spacing-unit * .25;
+    border-bottom: 1px solid $border-color-01;
+}
+
+// Recent posts widget
+.sidebar-recent-posts-list {
+    list-style: none;
+    margin-left: 0;
+
+    li {
+	margin-bottom: $spacing-unit * .33;
+    }
+
+    a {
+	font-size: $small-font-size;
+	display: block;
+    }
+
+    .post-meta {
+	display: block;
+	font-size: $small-font-size * 0.9;
+    }
+}
+
+// Calendar widget
+.cal-nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 6px;
+
+    button {
+	background: none;
+	border: none;
+	cursor: pointer;
+	color: var(--link-color);
+	font-size: 1.25rem;
+	line-height: 1;
+	padding: 0 4px;
+
+	&:hover {
+	    color: var(--brand-color);
+	}
+    }
+}
+
+.cal-month-title {
+    font-size: $small-font-size;
+    font-weight: 700;
+}
+
+.cal-table {
+    width: 100%;
+    border-collapse: collapse;
+    border: none;
+    margin-bottom: 0;
+
+    th, td {
+	text-align: center;
+	padding: 2px 1px;
+	border: none;
+	background-color: transparent;
+	font-size: 0.75rem;
+    }
+
+    th {
+	color: $brand-color;
+    }
+
+    tr:nth-child(even) {
+	background-color: transparent;
+    }
+
+    td a {
+	display: block;
+	font-weight: 700;
+    }
+}
