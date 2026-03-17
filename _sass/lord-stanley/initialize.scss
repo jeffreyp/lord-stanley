@@ -21,8 +21,8 @@ $base-line-height: 1.5 !default;
   --link-visited-color: #2a7ae2;
   --blockquote-color: #828282;
   --blockquote-border-color: #{lighten(#828282, 40%)};
-  --code-background-color: #eeeeff;
-  --code-border-color: #{lighten(#828282, 40%)};
+  --code-background-color: #f6f8fa;
+  --code-border-color: #d0d7de;
   --grey-color: #828282;
   --orange-color: #f66a0a;
   --svg-icon-color: #333333;
@@ -223,7 +223,8 @@ $on-large: $on-laptop !default;
 "lord-stanley/custom-variables",
 "lord-stanley/custom-styles",
 "lord-stanley/base",
-"lord-stanley/layout"
+"lord-stanley/layout",
+"lord-stanley/syntax"
 ;
 
 
