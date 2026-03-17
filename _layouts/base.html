@@ -12,9 +12,11 @@
           <div class="main-content">
             {{ content }}
           </div>
+          {%- unless page.layout == "post" -%}
           <aside class="sidebar" role="complementary">
             {%- include sidebar.html -%}
           </aside>
+          {%- endunless -%}
         </div>
       </div>
     </main>

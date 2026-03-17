@@ -321,6 +321,24 @@
     }
 }
 
+// Post body: content + sidebar side by side (below the post header)
+.post-body-layout {
+    display: flex;
+    gap: $spacing-unit;
+    align-items: flex-start;
+
+    .post-content {
+        flex: 1;
+        min-width: 0;
+    }
+
+    .sidebar {
+        @media screen and (max-width: 900px) {
+            display: none;
+        }
+    }
+}
+
 // Two-column layout: main content + sidebar
 .site-layout {
     display: flex;
