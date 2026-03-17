@@ -6,6 +6,12 @@ A very much work-in-progress-but-one-day clean, responsive Jekyll theme built wi
 
 Named after **[Frederick Stanley, 16th Earl of Derby](https://en.wikipedia.org/wiki/Frederick_Stanley,_16th_Earl_of_Derby)** (1841-1908), who served as Governor General of Canada and is best known for donating the Stanley Cup, the championship trophy of the National Hockey League.
 
+## Screenshots
+
+| Light | Dark |
+|-------|------|
+| ![Light theme](screenshots/light.png) | ![Dark theme](screenshots/dark.png) |
+
 ## Features
 
 - **Responsive Design**: Mobile-first approach with clean, modern styling
