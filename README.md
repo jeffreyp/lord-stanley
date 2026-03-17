@@ -14,6 +14,9 @@ Named after **[Frederick Stanley, 16th Earl of Derby](https://en.wikipedia.org/w
 - **Multiple Color Schemes**: Classic, dark, auto, and solarized variants
 - **Customizable Navigation**: Configure header pages and social links
 - **RSS Feed**: Automatic feed generation for blog posts
+- **Pagination**: Built-in post pagination on the homepage
+- **Date Archives**: Year, month, and day archive pages via jekyll-archives
+- **Sidebar**: Recent posts widget and interactive calendar widget on every page
 - **Accessibility**: ARIA labels and semantic HTML structure
 - **Fast Loading**: Optimized assets and clean code structure
 
@@ -66,6 +69,8 @@ plugins:
   - jekyll-feed
   - jekyll-seo-tag
   - jekyll-sitemap
+  - jekyll-paginate
+  - jekyll-archives
 
 # Google Analytics (optional)
 google_analytics: GA_MEASUREMENT_ID  # Replace with your Google Analytics 4 measurement ID
@@ -74,7 +79,8 @@ google_analytics: GA_MEASUREMENT_ID  # Replace with your Google Analytics 4 meas
 lord-stanley:
   skin: classic  # Options: classic, dark, auto, solarized-light, solarized-dark, solarized
   date_format: "%b %d, %Y"
-  
+  sidebar_recent_posts: 10  # Number of posts in the sidebar Recent Posts widget
+
   # Social links in footer
   social_links:
     - { platform: github, user_url: "https://github.com/yourusername" }
@@ -88,6 +94,25 @@ header_pages:
 
 # Show post excerpts on homepage
 show_excerpts: true
+
+# Pagination (requires jekyll-paginate)
+paginate: 5
+paginate_path: "/page:num/"
+
+# Date archives (requires jekyll-archives)
+jekyll-archives:
+  enabled:
+    - year
+    - month
+    - day
+  layouts:
+    year: archive
+    month: archive
+    day: archive
+  permalinks:
+    year: "/:year/"
+    month: "/:year/:month/"
+    day: "/:year/:month/:day/"
 ```
 
 ### Color Schemes
@@ -195,20 +220,24 @@ To set up the development environment:
 
 ```
 lord-stanley/
-├── _includes/           # Reusable components
-│   ├── head.html       # HTML head section
-│   ├── header.html     # Site header
-│   ├── footer.html     # Site footer
-│   └── social-icons/   # Social media icons
-├── _layouts/           # Page layouts
-│   ├── base.html       # Base HTML structure
-│   ├── home.html       # Homepage layout
-│   ├── page.html       # Static page layout
-│   └── post.html       # Blog post layout
-├── _sass/              # Stylesheet partials
-│   └── lord-stanley/   # Theme styles
-├── assets/             # Compiled assets
-└── _config.yml         # Theme configuration
+├── _includes/                    # Reusable components
+│   ├── head.html                # HTML head section
+│   ├── header.html              # Site header
+│   ├── footer.html              # Site footer
+│   ├── sidebar.html             # Sidebar (includes widgets below)
+│   ├── sidebar-recent-posts.html # Recent posts widget
+│   ├── sidebar-calendar.html    # Interactive calendar widget
+│   └── social-icons/            # Social media icons
+├── _layouts/                    # Page layouts
+│   ├── base.html               # Base HTML structure
+│   ├── home.html               # Homepage layout with pagination
+│   ├── page.html               # Static page layout
+│   ├── post.html               # Blog post layout
+│   └── archive.html            # Date archive layout
+├── _sass/                       # Stylesheet partials
+│   └── lord-stanley/            # Theme styles
+├── assets/                      # Compiled assets
+└── _config.yml                  # Theme configuration
 ```
 
 ## Contributing
