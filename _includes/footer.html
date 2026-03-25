@@ -1,3 +1,25 @@
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  var sections = document.querySelectorAll('.footnotes');
+  if (sections.length <= 1) return;
+  sections.forEach(function (section, idx) {
+    var container = section.closest('li, article') || document.body;
+    var pfx = 'post' + idx;
+    section.querySelectorAll('[id^="fn:"]').forEach(function (el) {
+      el.id = pfx + '-' + el.id;
+    });
+    section.querySelectorAll('a[href^="#fnref:"]').forEach(function (el) {
+      el.setAttribute('href', '#' + pfx + '-' + el.getAttribute('href').slice(1));
+    });
+    container.querySelectorAll('[id^="fnref:"]').forEach(function (el) {
+      el.id = pfx + '-' + el.id;
+    });
+    container.querySelectorAll('a[href^="#fn:"]').forEach(function (el) {
+      el.setAttribute('href', '#' + pfx + '-' + el.getAttribute('href').slice(1));
+    });
+  });
+});
+</script>
 <footer class="site-footer h-card">
     <data class="u-url" href="{{ "/" | relative_url }}"></data>
     {%- include social-icons-sprite.html -%}
