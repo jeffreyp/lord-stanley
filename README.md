@@ -153,6 +153,64 @@ The theme includes:
 - Automatic loading only in production environment
 - Modern Google Analytics 4 support
 
+### Charts and Diagrams
+
+Posts can opt into Chart.js (data charts) and Mermaid (diagrams) by setting front matter flags. The libraries are loaded only on pages that need them.
+
+#### Chart.js
+
+Add `charts: true` to your post's front matter, then use a `<canvas>` element and inline `<script>` to initialize:
+
+```markdown
+---
+layout: post
+title: "My Data Post"
+charts: true
+---
+
+<canvas id="my-chart" style="max-width: 600px;"></canvas>
+<script>
+new Chart(document.getElementById('my-chart'), {
+  type: 'bar',
+  data: {
+    labels: ['Jan', 'Feb', 'Mar'],
+    datasets: [{ label: 'Visitors', data: [1200, 1900, 1500] }]
+  }
+});
+</script>
+```
+
+Supported chart types: `bar`, `line`, `pie`, `doughnut`, `radar`, `scatter`, `bubble`, and more. See the [Chart.js docs](https://www.chartjs.org/docs/latest/) for full options.
+
+#### Mermaid Diagrams
+
+Add `mermaid: true` to your post's front matter, then wrap diagram syntax in a `<div class="mermaid">` block:
+
+```markdown
+---
+layout: post
+title: "My Architecture Post"
+mermaid: true
+---
+
+<div class="mermaid">
+flowchart LR
+  A[User] --> B[Server]
+  B --> C[Database]
+</div>
+```
+
+Supported diagram types include flowcharts, sequence diagrams, Gantt charts, class diagrams, pie charts, and more. See the [Mermaid docs](https://mermaid.js.org/intro/) for syntax.
+
+Both flags can be combined in the same post:
+
+```yaml
+---
+charts: true
+mermaid: true
+---
+```
+
 ### Posts and Pages
 
 Create posts in the `_posts` directory using the standard Jekyll naming convention:
