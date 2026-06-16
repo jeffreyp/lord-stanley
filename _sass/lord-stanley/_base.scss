@@ -36,9 +36,13 @@ main {
     display: block;
 }
 
-img {
+img, canvas {
     max-width: 100%;
     vertical-align: middle;
+}
+
+canvas {
+    margin-bottom: $spacing-unit * .5;
 }
 
 ul, ol {
