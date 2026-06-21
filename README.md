@@ -157,6 +157,10 @@ The theme includes:
 
 Posts can opt into Chart.js (data charts) and Mermaid (diagrams) by setting front matter flags. The libraries are loaded only on pages that need them.
 
+| Chart.js | Mermaid |
+|----------|---------|
+| ![Chart.js bar chart](screenshots/chartjs-example.png) | ![Mermaid flowchart](screenshots/mermaid-example.png) |
+
 #### Chart.js
 
 Add `charts: true` to your post's front matter, then use a `<canvas>` element and inline `<script>` to initialize:
