@@ -10,7 +10,7 @@ permalink: /categories/
     {%- assign posts = category[1] -%}
     {%- assign category_path = name | slugify | prepend: "/category/" | append: "/" -%}
     <li>
-      <a href="{{ category_path | relative_url }}">{{ name }}</a>
+      <a href="{{ category_path | relative_url }}">{{ name | escape }}</a>
       <span class="taxonomy-count">{{ posts.size }}</span>
     </li>
   {%- endfor -%}

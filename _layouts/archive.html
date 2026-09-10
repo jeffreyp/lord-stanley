@@ -6,9 +6,9 @@ layout: base
   <h1 class="page-heading">
     {%- case page.type -%}
       {%- when "tag" -%}
-        Posts tagged &ldquo;{{ page.title }}&rdquo;
+        Posts tagged &ldquo;{{ page.title | escape }}&rdquo;
       {%- when "category" -%}
-        Posts in category &ldquo;{{ page.title }}&rdquo;
+        Posts in category &ldquo;{{ page.title | escape }}&rdquo;
       {%- when "year" -%}
         {{ page.date | date: "%Y" }}
       {%- when "month" -%}
@@ -16,7 +16,7 @@ layout: base
       {%- when "day" -%}
         {{ page.date | date: "%B %-d, %Y" }}
       {%- else -%}
-        {{ page.title }}
+        {{ page.title | escape }}
     {%- endcase -%}
   </h1>
 

@@ -10,7 +10,7 @@ permalink: /tags/
     {%- assign posts = tag[1] -%}
     {%- assign tag_path = name | slugify | prepend: "/tag/" | append: "/" -%}
     <li>
-      <a href="{{ tag_path | relative_url }}">#{{ name }}</a>
+      <a href="{{ tag_path | relative_url }}">#{{ name | escape }}</a>
       <span class="taxonomy-count">{{ posts.size }}</span>
     </li>
   {%- endfor -%}

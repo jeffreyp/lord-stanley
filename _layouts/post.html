@@ -31,7 +31,7 @@ layout: base
       {%- if page.author -%}
         • {% for author in page.author %}
           <span itemprop="author" itemscope itemtype="http://schema.org/Person">
-            <span class="p-author h-card" itemprop="name">{{ author }}</span></span>
+            <span class="p-author h-card" itemprop="name">{{ author | escape }}</span></span>
             {%- if forloop.last == false %}, {% endif -%}
         {% endfor %}
       {%- endif -%}</p>
@@ -39,11 +39,11 @@ layout: base
       <p class="post-taxonomy">
         {%- for category in page.categories -%}
           {%- assign category_path = category | slugify | prepend: "/category/" | append: "/" -%}
-          <a class="post-taxonomy-item post-category" href="{{ category_path | relative_url }}">{{ category }}</a>
+          <a class="post-taxonomy-item post-category" href="{{ category_path | relative_url }}">{{ category | escape }}</a>
         {%- endfor -%}
         {%- for tag in page.tags -%}
           {%- assign tag_path = tag | slugify | prepend: "/tag/" | append: "/" -%}
-          <a class="post-taxonomy-item post-tag" href="{{ tag_path | relative_url }}">#{{ tag }}</a>
+          <a class="post-taxonomy-item post-tag" href="{{ tag_path | relative_url }}">#{{ tag | escape }}</a>
         {%- endfor -%}
       </p>
     {%- endif -%}
