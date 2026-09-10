@@ -48,14 +48,20 @@ jekyll-archives:
     - year
     - month
     - day
+    - categories
+    - tags
   layouts:
     year: archive
     month: archive
     day: archive
+    category: archive
+    tag: archive
   permalinks:
     year: "/:year/"
     month: "/:year/:month/"
     day: "/:year/:month/:day/"
+    category: "/category/:name/"
+    tag: "/tag/:name/"
 
 # Google Analytics
 google_analytics: GA_MEASUREMENT_ID # Replace with your Google Analytics 4 measurement ID (e.g., G-XXXXXXXXXX)

@@ -1,0 +1,17 @@
+---
+layout: page
+title: Tags
+permalink: /tags/
+---
+<ul class="taxonomy-list">
+  {%- assign tags = site.tags | sort -%}
+  {%- for tag in tags -%}
+    {%- assign name = tag[0] -%}
+    {%- assign posts = tag[1] -%}
+    {%- assign tag_path = name | slugify | prepend: "/tag/" | append: "/" -%}
+    <li>
+      <a href="{{ tag_path | relative_url }}">#{{ name }}</a>
+      <span class="taxonomy-count">{{ posts.size }}</span>
+    </li>
+  {%- endfor -%}
+</ul>

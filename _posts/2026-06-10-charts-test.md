@@ -2,6 +2,7 @@
 layout: post
 title: "Charts and Diagrams Test"
 categories: misc
+tags: [charts, mermaid, testing]
 charts: true
 mermaid: true
 ---

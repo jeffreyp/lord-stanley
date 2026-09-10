@@ -1,0 +1,17 @@
+---
+layout: page
+title: Categories
+permalink: /categories/
+---
+<ul class="taxonomy-list">
+  {%- assign categories = site.categories | sort -%}
+  {%- for category in categories -%}
+    {%- assign name = category[0] -%}
+    {%- assign posts = category[1] -%}
+    {%- assign category_path = name | slugify | prepend: "/category/" | append: "/" -%}
+    <li>
+      <a href="{{ category_path | relative_url }}">{{ name }}</a>
+      <span class="taxonomy-count">{{ posts.size }}</span>
+    </li>
+  {%- endfor -%}
+</ul>
