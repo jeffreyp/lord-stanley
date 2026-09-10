@@ -1,5 +1,7 @@
 @charset "utf-8";
 
+@use "sass:color";
+
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap');
 $base-font-family: "Noto Sans";
 $code-font-family: "Menlo", "Inconsolata", "Consolas", "Roboto Mono", "Ubunto Mono", "Courier New", monospace;
@@ -13,24 +15,24 @@ $base-line-height: 1.5 !default;
   --background-color: #fdfdfd;
   --text-color: #111111;
   --brand-color: #3f5285;
-  --border-color-01: #{lighten(#3f5285, 40%)};
-  --border-color-02: #{lighten(#3f5285, 35%)};
-  --border-color-03: #{darken(#3f5285, 25%)};
-  --site-title-color: #{darken(#3f5285, 25%)};
+  --border-color-01: #{color.adjust(#3f5285, $lightness: 40%)};
+  --border-color-02: #{color.adjust(#3f5285, $lightness: 35%)};
+  --border-color-03: #{color.adjust(#3f5285, $lightness: -25%)};
+  --site-title-color: #{color.adjust(#3f5285, $lightness: -25%)};
   --link-color: #2a7ae2;
   --link-visited-color: #2a7ae2;
   --blockquote-color: #828282;
-  --blockquote-border-color: #{lighten(#828282, 40%)};
+  --blockquote-border-color: #{color.adjust(#828282, $lightness: 40%)};
   --code-background-color: #f6f8fa;
   --code-border-color: #d0d7de;
   --grey-color: #828282;
   --orange-color: #f66a0a;
   --svg-icon-color: #333333;
-  --table-text-color: #{lighten(#111111, 18%)};
-  --table-border-color: #{lighten(#828282, 40%)};
-  --table-header-background: #{lighten(#828282, 46%)};
-  --table-header-border: #{lighten(#828282, 18%)};
-  --table-row-background: #{lighten(#828282, 48%)};
+  --table-text-color: #{color.adjust(#111111, $lightness: 18%)};
+  --table-border-color: #{color.adjust(#828282, $lightness: 40%)};
+  --table-header-background: #{color.adjust(#828282, $lightness: 46%)};
+  --table-header-border: #{color.adjust(#828282, $lightness: 18%)};
+  --table-row-background: #{color.adjust(#828282, $lightness: 48%)};
 }
 
 // Dark color scheme
