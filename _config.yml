@@ -18,6 +18,11 @@ timezone: "America/New_York" # Replace with your timezone
 
 # Build settings
 
+# Use slugified categories (downcased, non-alphanumeric chars replaced with
+# hyphens) in post URLs instead of Jekyll's default raw categories, matching
+# the slugified /category/:name/ and /tag/:name/ archive paths.
+permalink: "/:slugified_categories/:year/:month/:day/:title:output_ext"
+
 # If you clone this repo and build locally, use this setting.
 theme: lord-stanley
 
