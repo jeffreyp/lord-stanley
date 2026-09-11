@@ -61,7 +61,7 @@ plugins:
   - jekyll-feed
   - jekyll-seo-tag
   - jekyll-sitemap
-  - jekyll-paginate
+  - jekyll-paginate-v2
   - jekyll-archives
 
 # Google Analytics (optional)
@@ -87,9 +87,11 @@ header_pages:
 # Show post excerpts on homepage
 show_excerpts: true
 
-# Pagination (requires jekyll-paginate)
-paginate: 5
-paginate_path: "/page:num/"
+# Pagination (requires jekyll-paginate-v2)
+pagination:
+  enabled: true
+  per_page: 5
+  permalink: "/page:num/"
 
 # Date, category, and tag archives (requires jekyll-archives)
 jekyll-archives:
