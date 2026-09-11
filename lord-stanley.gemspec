@@ -22,4 +22,5 @@ Gem::Specification.new do |spec|
   spec.add_runtime_dependency "jekyll-archives", "~> 2.2"
 
   spec.add_development_dependency "bundler"
+  spec.add_development_dependency "html-proofer", "~> 5.0"
 end

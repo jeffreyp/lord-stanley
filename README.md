@@ -1,5 +1,7 @@
 # Lord Stanley
 
+[![CI](https://github.com/jeffreyp/lord-stanley/actions/workflows/ci.yml/badge.svg)](https://github.com/jeffreyp/lord-stanley/actions/workflows/ci.yml)
+
 <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/63/Lord_Stanley_of_Preston.jpg/250px-Lord_Stanley_of_Preston.jpg" alt="Lord Frederick Stanley, 16th Earl of Derby" width="200" align="right" style="margin-left: 20px; margin-bottom: 20px;">
 
 A very much work-in-progress-but-one-day clean, responsive Jekyll theme. Inspired by the Minima theme but with enhanced features and improved structure.
@@ -328,6 +330,13 @@ lord-stanley/
 ## Contributing
 
 Bug reports and pull requests are welcome on GitHub at https://github.com/jeffreyp/lord-stanley.
+
+Every push and pull request runs the site through `jekyll build` and [html-proofer](https://github.com/gjtorikian/html-proofer) (broken internal links, images, and scripts) via GitHub Actions. Run the same checks locally with:
+
+```sh
+bundle exec jekyll build
+bundle exec htmlproofer ./_site --disable-external --allow-hash-href
+```
 
 ## License
 
