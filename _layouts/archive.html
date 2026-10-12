@@ -20,6 +20,11 @@ layout: base
     {%- endcase -%}
   </h1>
 
+  {%- if site.show_excerpts -%}
+    {%- assign excerpt_charts = page.posts | where: "charts", true | first -%}
+    {%- assign excerpt_mermaid = page.posts | where: "mermaid", true | first -%}
+    {%- include post-libraries.html charts=excerpt_charts mermaid=excerpt_mermaid -%}
+  {%- endif -%}
   {%- if page.posts.size > 0 -%}
     <ul class="post-list">
       {%- assign date_format = site.lord-stanley.date_format | default: "%b %d, %Y" -%}

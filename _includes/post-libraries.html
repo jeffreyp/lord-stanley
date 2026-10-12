@@ -1,0 +1,15 @@
+{%- comment -%}
+  Loads opt-in client libraries. Pass charts=true and/or mermaid=true.
+  Must be included before any inline script that uses them.
+{%- endcomment -%}
+{%- if include.charts -%}
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.5.1/dist/chart.umd.min.js"
+        integrity="sha384-jb8JQMbMoBUzgWatfe6COACi2ljcDdZQ2OxczGA3bGNeWe+6DChMTBJemed7ZnvJ"
+        crossorigin="anonymous"></script>
+{%- endif -%}
+{%- if include.mermaid -%}
+<script src="https://cdn.jsdelivr.net/npm/mermaid@11.15.0/dist/mermaid.min.js"
+        integrity="sha384-yQ4mmBBT+vhTAwjFH0toJXNYJ6O4usWnt6EPIdWwrRvx2V/n5lXuDZQwQFeSFydF"
+        crossorigin="anonymous"></script>
+<script>mermaid.initialize({ startOnLoad: true });</script>
+{%- endif -%}

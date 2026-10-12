@@ -165,7 +165,7 @@ The theme includes:
 
 ### Charts and Diagrams
 
-Posts can opt into Chart.js (data charts) and Mermaid (diagrams) by setting front matter flags. The libraries are loaded only on pages that need them.
+Posts can opt into Chart.js (data charts) and Mermaid (diagrams) by setting front matter flags. The libraries are loaded only on pages that need them: the post itself, plus the home and archive pages whenever they show an excerpt from a flagged post (when `show_excerpts` is enabled). That way a chart or diagram above the post's excerpt separator renders in the post list too.
 
 | Chart.js | Mermaid |
 |----------|---------|

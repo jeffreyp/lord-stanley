@@ -15,6 +15,11 @@ layout: base
     {% assign posts = site.posts %}
   {% endif %}
 
+  {%- if site.show_excerpts -%}
+    {%- assign excerpt_charts = posts | where: "charts", true | first -%}
+    {%- assign excerpt_mermaid = posts | where: "mermaid", true | first -%}
+    {%- include post-libraries.html charts=excerpt_charts mermaid=excerpt_mermaid -%}
+  {%- endif -%}
   {%- if posts.size > 0 -%}
     {%- if page.list_title -%}
       <h2 class="post-list-heading">{{ page.list_title | escape }}</h2>
