@@ -150,6 +150,21 @@ Add social media links to your footer by configuring the `social_links` array in
 
 Configure which pages appear in your header navigation using the `header_pages` setting. Pages will appear in the order listed.
 
+### Customizing Sass Variables
+
+Override theme defaults in `_sass/lord-stanley/custom-variables.scss` by configuring the forwarded module:
+
+```scss
+@forward "defaults" with (
+  $spacing-unit: 24px,
+  $content-width: 1200px
+);
+```
+
+### Fonts
+
+Noto Sans is self-hosted from `assets/fonts/` (Latin and Latin Extended, licensed under the [SIL Open Font License](assets/fonts/OFL.txt)). Other scripts, such as Greek, Cyrillic and Devanagari, use the visitor's system fonts.
+
 ### Google Analytics
 
 To enable Google Analytics tracking, add your measurement ID to `_config.yml`:
@@ -163,9 +178,20 @@ The theme includes:
 - Automatic loading only in production environment
 - Modern Google Analytics 4 support
 
+### Content Security Policy
+
+Set this in `_config.yml` to send a `Content-Security-Policy` through a `<meta>` tag:
+
+```yaml
+lord-stanley:
+  content_security_policy: true
+```
+
+The policy allows scripts only from your site and the exact Chart.js and Mermaid versions the theme uses, plus Google Analytics when configured. It blocks inline scripts and iframes, so turn it off or edit `_includes/content-security-policy.html` if your posts embed videos, widgets or their own scripts. A `<meta>` policy can't set `frame-ancestors`, so use a response header from your host if you need clickjacking protection.
+
 ### Charts and Diagrams
 
-Posts can opt into Chart.js (data charts) and Mermaid (diagrams) by setting front matter flags. The libraries are loaded only on pages that need them: the post itself, plus the home and archive pages whenever they show an excerpt from a flagged post (when `show_excerpts` is enabled). That way a chart or diagram above the post's excerpt separator renders in the post list too.
+Posts can opt into Chart.js (data charts) and Mermaid (diagrams) by setting front matter flags. The libraries are loaded only on pages that need them: the post itself, plus any home or archive page showing an excerpt that contains a chart or diagram (when `show_excerpts` is enabled). That way a chart or diagram above the post's excerpt separator renders in the post list too.
 
 | Chart.js | Mermaid |
 |----------|---------|
@@ -173,7 +199,7 @@ Posts can opt into Chart.js (data charts) and Mermaid (diagrams) by setting fron
 
 #### Chart.js
 
-Add `charts: true` to your post's front matter, then use a `<canvas>` element and inline `<script>` to initialize:
+Add `charts: true` to your post's front matter, then pair a `<canvas>` with a JSON configuration block whose `data-chart` attribute names the canvas:
 
 ```markdown
 ---
@@ -183,16 +209,18 @@ charts: true
 ---
 
 <canvas id="my-chart" style="max-width: 600px;"></canvas>
-<script>
-new Chart(document.getElementById('my-chart'), {
-  type: 'bar',
-  data: {
-    labels: ['Jan', 'Feb', 'Mar'],
-    datasets: [{ label: 'Visitors', data: [1200, 1900, 1500] }]
+<script type="application/json" data-chart="my-chart">
+{
+  "type": "bar",
+  "data": {
+    "labels": ["A", "B", "C"],
+    "datasets": [{ "label": "Example", "data": [1, 2, 3] }]
   }
-});
+}
 </script>
 ```
+
+JSON can't hold functions. If you need callbacks, call `new Chart(...)` from an inline `<script>` instead, which requires turning off the Content Security Policy.
 
 Supported chart types: `bar`, `line`, `pie`, `doughnut`, `radar`, `scatter`, `bubble`, and more. See the [Chart.js docs](https://www.chartjs.org/docs/latest/) for full options.
 

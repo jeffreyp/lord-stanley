@@ -18,6 +18,10 @@ timezone: "America/New_York" # Replace with your timezone
 
 # Build settings
 
+sass:
+  style: compressed
+  sourcemap: development
+
 # Use slugified categories (downcased, non-alphanumeric chars replaced with
 # hyphens) in post URLs instead of Jekyll's default raw categories, matching
 # the slugified /category/:name/ and /tag/:name/ archive paths.
@@ -48,6 +52,8 @@ pagination:
   enabled: true
   per_page: 5
   permalink: "/page:num/"
+  sort_field: "date"
+  sort_reverse: true # Newest posts first
 
 # Archive settings
 jekyll-archives:
@@ -84,6 +90,10 @@ lord-stanley:
   # solarized-dark	   Dark variant of solarized color scheme.
   # solarized	         Adaptive skin for solarized color scheme skins.
   skin: solarized-light
+
+  # Send a Content-Security-Policy that blocks inline scripts and most third-party
+  # content. See "Content Security Policy" in the README before embedding anything.
+  content_security_policy: true
   
   # Date format.
   # The default value is "%b %d, %Y" (e.g. Nov 14, 2023)

@@ -1,3 +1,6 @@
+@use "base"; // .pagination extends a selector defined there
+@use "custom-variables" as *;
+
 .site-header {
     border-top: 5px solid $border-color-03;
     border-bottom: 1px solid $border-color-01;
@@ -13,7 +16,7 @@
     margin-bottom: 0;
     float: left;
 
-    @include media-query(on-palm) {
+    @include media-query($on-palm) {
 	padding-right: 45px;
     }
 
@@ -31,8 +34,18 @@
     border-radius: 6px;
     text-align: right;
 
+    // Visually hidden rather than display: none, so keyboards can reach it.
     .nav-trigger {
-	display: none;
+	position: absolute;
+	width: 1px;
+	height: 1px;
+	margin: 0;
+	opacity: 0;
+
+	&:focus-visible + label {
+	    outline: 2px solid var(--brand-color);
+	    outline-offset: 2px;
+	}
     }
 
     .menu-icon {
@@ -71,7 +84,7 @@
 	color: $text-color;
 	line-height: $base-line-height;
 	display: block;
-	padding: 5px 10 px;
+	padding: 5px 10px;
 
 	&:not(:last-child) {
 	    margin-right: 0;
@@ -85,6 +98,7 @@
 	border: none;
 	background-color: inherit;
 
+	.nav-trigger,
 	label[for="nav-trigger"] {
 	    display: none;
 	}

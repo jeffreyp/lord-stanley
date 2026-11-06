@@ -1,19 +1,21 @@
 <!DOCTYPE html>
-<html lang="{{ page.lang | default: site.lang | default: "en" }}">
+{%- assign skin = site.lord-stanley.skin | default: "classic" -%}
+<html lang="{{ page.lang | default: site.lang | default: "en" }}"{% unless skin == "classic" %} data-theme="{{ skin | escape }}"{% endunless %}>
 
   {%- include head.html -%}
 
   <body>
+    <a class="skip-link" href="#main-content">Skip to content</a>
     {%- include header.html -%}
 
-    <main class="page-content" aria-label="Content">
+    <main class="page-content" id="main-content" tabindex="-1" aria-label="Content">
       <div class="wrapper">
         <div class="site-layout">
           <div class="main-content">
             {{ content }}
           </div>
           {%- unless page.layout == "post" -%}
-          <aside class="sidebar" role="complementary">
+          <aside class="sidebar">
             {%- include sidebar.html -%}
           </aside>
           {%- endunless -%}

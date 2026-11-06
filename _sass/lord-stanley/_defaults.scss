@@ -1,0 +1,39 @@
+// Theme defaults. Override them in custom-variables.scss rather than here.
+
+$base-font-family: "Noto Sans", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif !default;
+$code-font-family: "Menlo", "Inconsolata", "Consolas", "Roboto Mono", "Ubunto Mono", "Courier New", monospace !default;
+$base-font-size: 16px !default;
+$base-font-weight: 400 !default;
+$small-font-size: $base-font-size * 0.875 !default;
+$base-line-height: 1.5 !default;
+
+// SCSS variables using CSS custom properties
+$border-color-01: var(--border-color-01) !default;
+$border-color-02: var(--border-color-02) !default;
+$border-color-03: var(--border-color-03) !default;
+$site-title-color: var(--site-title-color) !default;
+$background-color: var(--background-color) !default;
+$text-color: var(--text-color) !default;
+$brand-color: var(--brand-color) !default;
+
+$spacing-unit: 30px !default;
+
+$table-text-align: left !default;
+
+$content-width: 1400px !default;
+$sidebar-width: 220px !default;
+
+$on-palm: 600px !default;
+$on-laptop: 1400px !default;
+$on-medium: $on-palm !default;
+$on-large: $on-laptop !default;
+
+@mixin media-query($device) {
+    @media screen and (max-width: $device) {
+	@content;
+    }
+}
+
+@mixin relative-font-size($ratio) {
+    font-size: #{$ratio}rem;
+}

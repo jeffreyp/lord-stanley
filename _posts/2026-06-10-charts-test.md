@@ -14,22 +14,22 @@ This post tests Chart.js and Mermaid.js integration.
 Monthly website visitors over the first half of the year:
 
 <canvas id="visitors-chart" style="max-width: 600px; margin-bottom: 2rem;"></canvas>
-<script>
-new Chart(document.getElementById('visitors-chart'), {
-  type: 'bar',
-  data: {
-    labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'],
-    datasets: [{
-      label: 'Visitors',
-      data: [1200, 1900, 1500, 2400, 2100, 2800],
-      borderWidth: 1
+<script type="application/json" data-chart="visitors-chart">
+{
+  "type": "bar",
+  "data": {
+    "labels": ["Jan", "Feb", "Mar", "Apr", "May", "Jun"],
+    "datasets": [{
+      "label": "Visitors",
+      "data": [1200, 1900, 1500, 2400, 2100, 2800],
+      "borderWidth": 1
     }]
   },
-  options: {
-    responsive: true,
-    plugins: { legend: { display: false } }
+  "options": {
+    "responsive": true,
+    "plugins": { "legend": { "display": false } }
   }
-});
+}
 </script>
 
 ## Line Chart (Chart.js)
@@ -37,20 +37,20 @@ new Chart(document.getElementById('visitors-chart'), {
 Average page load time (ms) over the same period:
 
 <canvas id="perf-chart" style="max-width: 600px; margin-bottom: 2rem;"></canvas>
-<script>
-new Chart(document.getElementById('perf-chart'), {
-  type: 'line',
-  data: {
-    labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'],
-    datasets: [{
-      label: 'Load time (ms)',
-      data: [820, 790, 750, 710, 680, 640],
-      tension: 0.3,
-      fill: true
+<script type="application/json" data-chart="perf-chart">
+{
+  "type": "line",
+  "data": {
+    "labels": ["Jan", "Feb", "Mar", "Apr", "May", "Jun"],
+    "datasets": [{
+      "label": "Load time (ms)",
+      "data": [820, 790, 750, 710, 680, 640],
+      "tension": 0.3,
+      "fill": true
     }]
   },
-  options: { responsive: true }
-});
+  "options": { "responsive": true }
+}
 </script>
 
 ## Flowchart (Mermaid)

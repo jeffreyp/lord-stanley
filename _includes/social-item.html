@@ -1,7 +1,7 @@
-<li>{% assign entry = include.item %}
-  <a {% unless entry.platform == 'rss' %}rel="me" {% endunless %}href="{{ entry.user_url}}" target="_blank" title="{{ entry.title | default: entry.platform }}">
-    <svg class="svg-icon">
-      <use xlink:href="#{{ entry.platform }}"></use>
+<li>{% assign entry = include.item %}{% assign label = entry.title | default: entry.platform %}
+  <a {% unless entry.platform == 'rss' %}rel="me noopener" {% endunless %}href="{{ entry.user_url }}" target="_blank" title="{{ label }}" aria-label="{{ label }}">
+    <svg class="svg-icon" aria-hidden="true">
+      <use href="#{{ entry.platform }}"></use>
     </svg>
   </a>
 </li>

@@ -1,1 +1,7 @@
-// Placeholder to allow overriding predefined variables smoothly.
+// Override theme defaults here by configuring the forwarded module, for example:
+//
+//   @forward "defaults" with (
+//     $spacing-unit: 24px,
+//     $content-width: 1200px
+//   );
+@forward "defaults";

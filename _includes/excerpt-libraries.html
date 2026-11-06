@@ -1,0 +1,16 @@
+{%- comment -%}
+  Loads chart and diagram libraries for a post list, only if an excerpt it
+  displays really contains a chart or diagram. Pass posts=<the listed posts>.
+{%- endcomment -%}
+{%- assign excerpt_charts = false -%}
+{%- assign excerpt_mermaid = false -%}
+{%- for listed_post in include.posts -%}
+  {%- assign excerpt_html = listed_post.excerpt | append: "" -%}
+  {%- if listed_post.charts and excerpt_html contains "<canvas" -%}
+    {%- assign excerpt_charts = true -%}
+  {%- endif -%}
+  {%- if listed_post.mermaid and excerpt_html contains 'class="mermaid' -%}
+    {%- assign excerpt_mermaid = true -%}
+  {%- endif -%}
+{%- endfor -%}
+{%- include post-libraries.html charts=excerpt_charts mermaid=excerpt_mermaid -%}

@@ -10,6 +10,8 @@ Gem::Specification.new do |spec|
   spec.homepage      = "https://github.com/jeffreyp/lord-stanley"
   spec.license       = "MIT"
 
+  spec.required_ruby_version = ">= 3.2"
+
   spec.metadata["plugin_type"] = "theme"
 
   spec.files         = `git ls-files -z`.split("\x0").select { |f| f.match(%r!^(assets|_data|_layouts|_includes|_sass|LICENSE|README|_config\.yml)!i) }
@@ -22,5 +24,6 @@ Gem::Specification.new do |spec|
   spec.add_runtime_dependency "jekyll-archives", "~> 2.2"
 
   spec.add_development_dependency "bundler"
+  spec.add_development_dependency "bundler-audit", "~> 0.9"
   spec.add_development_dependency "html-proofer", "~> 5.0"
 end
