@@ -161,6 +161,21 @@ Override theme defaults in `_sass/lord-stanley/custom-variables.scss` by configu
 );
 ```
 
+### Favicons
+
+Add your icon files to your site, then list them in `_config.yml`. Every format is optional, so set only the ones you have:
+
+```yaml
+lord-stanley:
+  favicon:
+    ico: /favicon.ico                  # Older browsers; ideally 32x32
+    svg: /favicon.svg                  # Modern browsers; scales to any size
+    png: /favicon-96x96.png            # For browsers that prefer a PNG
+    apple_touch: /apple-touch-icon.png # iOS home screen; 180x180
+```
+
+Paths respect `baseurl`, and full URLs also work. The theme doesn't include an icon of its own. If you don't set any, it adds no icon tags and browsers look for `/favicon.ico` in your site root.
+
 ### Fonts
 
 Noto Sans is self-hosted from `assets/fonts/` (Latin and Latin Extended, licensed under the [SIL Open Font License](assets/fonts/OFL.txt)). Other scripts, such as Greek, Cyrillic and Devanagari, use the visitor's system fonts.
@@ -311,14 +326,6 @@ Add custom CSS by creating `assets/styles.scss` in your site and importing the t
 }
 ```
 
-### Favicon
-
-Replace the placeholder `favicon.ico` with your own favicon files:
-
-- `favicon.ico` - Standard favicon
-- `apple-touch-icon.png` - Apple touch icon (180x180)
-- `favicon-32x32.png` - 32x32 favicon
-- `favicon-16x16.png` - 16x16 favicon
 
 ## Development
 

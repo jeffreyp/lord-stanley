@@ -8,6 +8,10 @@ _site/
 .bundle/
 vendor/
 
+# Local testing artifacts
+.playwright-mcp/
+/traffic-*.png
+
 # Gems
 *.gem
 

@@ -1,0 +1,13 @@
+{%- assign favicon = site.lord-stanley.favicon -%}
+{%- if favicon.ico %}
+  <link rel="icon" href="{{ favicon.ico | relative_url | escape }}" sizes="32x32">
+{%- endif -%}
+{%- if favicon.svg %}
+  <link rel="icon" href="{{ favicon.svg | relative_url | escape }}" type="image/svg+xml">
+{%- endif -%}
+{%- if favicon.png %}
+  <link rel="icon" href="{{ favicon.png | relative_url | escape }}" type="image/png">
+{%- endif -%}
+{%- if favicon.apple_touch %}
+  <link rel="apple-touch-icon" href="{{ favicon.apple_touch | relative_url | escape }}" sizes="180x180">
+{%- endif -%}

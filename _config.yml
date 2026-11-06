@@ -95,6 +95,15 @@ lord-stanley:
   # content. See "Content Security Policy" in the README before embedding anything.
   content_security_policy: true
   
+  # Favicons. Set the formats you have; each one is optional. Paths are relative
+  # to your site root, and full URLs also work. With none set, the theme adds no
+  # icon tags and browsers look for /favicon.ico on their own.
+  #favicon:
+  #  ico: /favicon.ico                  # Older browsers; ideally 32x32
+  #  svg: /favicon.svg                  # Modern browsers; scales to any size
+  #  png: /favicon-96x96.png            # For browsers that prefer a PNG
+  #  apple_touch: /apple-touch-icon.png # iOS home screen; 180x180
+
   # Date format.
   # The default value is "%b %d, %Y" (e.g. Nov 14, 2023)
   # Refer to https://shopify.github.io/liquid/filters/date/ if you want to customize this.
