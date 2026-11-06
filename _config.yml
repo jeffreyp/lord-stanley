@@ -1,34 +1,11 @@
-title: Your Awesome Title
-author:
-  name: Github User
-  email: your-email@domain.com
-
-# The `>` after `description:` means to ignore line-breaks until next key.
-# If you want to omit the line-break after the end of text, use `>-` instead.
-description: >
-  Write an awesome description for your new site here. You can edit this line
-  in _config.yml. It will appear in your document head meta (for Google search
-  results) and in your feed.xml site description.
-
-# SEO and site settings
-url: "https://your-site.com" # Replace with your actual site URL
-baseurl: "" # Leave empty for root domain
-lang: "en-US"
-timezone: "America/New_York" # Replace with your timezone
-
-# Build settings
-
-sass:
-  style: compressed
-  sourcemap: development
+# Theme defaults, applied to sites that install Lord Stanley as a gem. Sites can
+# override any of these. Keep site-specific values in _config.demo.yml, which
+# holds the settings for this repository's demo site.
 
 # Use slugified categories (downcased, non-alphanumeric chars replaced with
 # hyphens) in post URLs instead of Jekyll's default raw categories, matching
 # the slugified /category/:name/ and /tag/:name/ archive paths.
 permalink: "/:slugified_categories/:year/:month/:day/:title:output_ext"
-
-# If you clone this repo and build locally, use this setting.
-theme: lord-stanley
 
 plugins:
   - jekyll-feed
@@ -37,12 +14,9 @@ plugins:
   - jekyll-sitemap
   - jekyll-archives
 
-# Theme-specific settings
-
-# If you want to link only specific pages in your header, use this and add the path to the pages
-# in order as they should show up.
-header_pages:
-  - about.md
+sass:
+  style: compressed
+  sourcemap: development
 
 # Set to `true` to show excerpts on the homepage.
 show_excerpts: true
@@ -75,54 +49,3 @@ jekyll-archives:
     day: "/:year/:month/:day/"
     category: "/category/:name/"
     tag: "/tag/:name/"
-
-# Google Analytics
-google_analytics: GA_MEASUREMENT_ID # Replace with your Google Analytics 4 measurement ID (e.g., G-XXXXXXXXXX)
-
-# Theme specific settings
-lord-stanley:
-  # Skin selection.
-  # Available skins are:
-  # classic	           Default, light color scheme.
-  # dark	             Dark variant of the classic skin.
-  # auto	             Adaptive skin based on the default classic and dark skins.
-  # solarized-light	   Light variant of solarized color scheme.
-  # solarized-dark	   Dark variant of solarized color scheme.
-  # solarized	         Adaptive skin for solarized color scheme skins.
-  skin: solarized-light
-
-  # Send a Content-Security-Policy that blocks inline scripts and most third-party
-  # content. See "Content Security Policy" in the README before embedding anything.
-  content_security_policy: true
-  
-  # Favicons. Set the formats you have; each one is optional. Paths are relative
-  # to your site root, and full URLs also work. With none set, the theme adds no
-  # icon tags and browsers look for /favicon.ico on their own.
-  #favicon:
-  #  ico: /favicon.ico                  # Older browsers; ideally 32x32
-  #  svg: /favicon.svg                  # Modern browsers; scales to any size
-  #  png: /favicon-96x96.png            # For browsers that prefer a PNG
-  #  apple_touch: /apple-touch-icon.png # iOS home screen; 180x180
-
-  # Date format.
-  # The default value is "%b %d, %Y" (e.g. Nov 14, 2023)
-  # Refer to https://shopify.github.io/liquid/filters/date/ if you want to customize this.
-  #date_format: "%b-%d-%Y"
-
-  # Number of posts to show in the sidebar "Recent Posts" widget (default: 10).
-  #sidebar_recent_posts: 10
-
-  # Generate social links in footer.
-  social_links:
-    - { platform: facebook,       user_url: "https://www.facebook.com/jekyll" }
-    - { platform: github,         user_url: "https://github.com/jekyll/minima" }
-    - { platform: google_scholar, user_url: "https://scholar.google.com/citations?user=qc6CJjYAAAAJ" }
-    - { platform: instagram,      user_url: "https://www.instagram.com/jekyll" }
-    - { platform: linkedin,       user_url: "https://www.linkedin.com/in/jekyll" }
-    - { platform: pinboard,       user_url: "https://pinboard.in/u:jekyll" }
-    - { platform: pinterest,      user_url: "https://www.pinterest.com/jekyll" }
-    - { platform: smugmug,        user_url: "https://jekyll.smugmug.com" }
-    - { platform: stackoverflow,  user_url: "https://stackoverflow.com/users/1234567/jekyll" }
-    - { platform: twitter,        user_url: "https://twitter.com/jekyllrb" }
-    - { platform: x,              user_url: "https://x.com/jekyllrb" }
-    - { platform: youtube,        user_url: "https://www.youtube.com/jekyll" }

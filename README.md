@@ -37,6 +37,8 @@ Then execute:
 bundle install
 ```
 
+The theme can also be installed as a gem with `theme: lord-stanley`. A gem install applies the plugin, pagination, archive and permalink defaults from the theme's `_config.yml` automatically. A remote theme install doesn't, so copy those settings from [Basic Configuration](#basic-configuration).
+
 ## Usage
 
 ### Basic Configuration
@@ -94,6 +96,8 @@ pagination:
   enabled: true
   per_page: 5
   permalink: "/page:num/"
+  sort_field: "date"
+  sort_reverse: true  # Newest posts first
 
 # Date, category, and tag archives (requires jekyll-archives)
 jekyll-archives:
@@ -115,6 +119,16 @@ jekyll-archives:
     day: "/:year/:month/:day/"
     category: "/category/:name/"
     tag: "/tag/:name/"
+```
+
+To paginate your home page, enable pagination in its front matter. Without this, it lists every post on one page:
+
+```yaml
+---
+layout: home
+pagination:
+  enabled: true
+---
 ```
 
 ### Color Schemes
@@ -195,7 +209,7 @@ The theme includes:
 
 ### Content Security Policy
 
-Set this in `_config.yml` to send a `Content-Security-Policy` through a `<meta>` tag:
+The policy is off by default. Set this in `_config.yml` to send a `Content-Security-Policy` through a `<meta>` tag:
 
 ```yaml
 lord-stanley:
@@ -333,7 +347,7 @@ To set up the development environment:
 
 1. Clone the repository
 2. Run `bundle install`
-3. Run `bundle exec jekyll serve`
+3. Run `bundle exec jekyll serve --config _config.yml,_config.demo.yml`
 4. Open http://localhost:4000 in your browser
 
 ### File Structure
@@ -359,7 +373,8 @@ lord-stanley/
 ├── assets/                      # Compiled assets
 ├── tags.html                    # Site-wide tag index (/tags/)
 ├── categories.html              # Site-wide category index (/categories/)
-└── _config.yml                  # Theme configuration
+├── _config.yml                  # Theme defaults, packaged with the gem
+└── _config.demo.yml             # Demo site settings, not packaged
 ```
 
 ## Contributing

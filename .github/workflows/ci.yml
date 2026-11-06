@@ -35,7 +35,7 @@ jobs:
         run: bundle exec bundler-audit check --update
 
       - name: Build site
-        run: bundle exec jekyll build
+        run: bundle exec jekyll build --config _config.yml,_config.demo.yml
 
       - name: Check HTML (broken links, images, scripts)
         run: bundle exec htmlproofer ./_site --disable-external --allow-hash-href

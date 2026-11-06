@@ -9,7 +9,7 @@ layout: base
 
   {{ content }}
 
-  {% if site.pagination.enabled %}
+  {% if paginator.posts %}
     {% assign posts = paginator.posts %}
   {% else %}
     {% assign posts = site.posts %}
@@ -39,7 +39,7 @@ layout: base
       {%- endfor -%}
     </ul>
 
-    {% if site.pagination.enabled %}
+    {% if paginator.posts %}
       <div class="pager">
         <ul class="pagination">
           {%- if paginator.previous_page %}
